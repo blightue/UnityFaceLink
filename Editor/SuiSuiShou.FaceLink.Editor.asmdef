@@ -2,7 +2,9 @@
     "name": "SuiSuiShou.FaceLink.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:367173fd492d7194dbda32ca71fa09b9"
+        "GUID:367173fd492d7194dbda32ca71fa09b9",
+        "GUID:126448e83d1b5784f9dfd6c7e3b87393",
+        "GUID:eec600d5c66aa6149a9b3d9547056e6a"
     ],
     "includePlatforms": [
         "Editor"
