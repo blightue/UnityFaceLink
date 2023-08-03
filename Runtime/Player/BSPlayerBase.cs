@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using FaceLink.Data;
 using UnityEngine;
 
@@ -24,7 +21,7 @@ namespace FaceLink.Player
 
         public virtual void Stop()
         {
-            Source.Stop();
+            Source.Stop(); 
         }
 
         public virtual void Pause()
@@ -37,7 +34,7 @@ namespace FaceLink.Player
 
         public virtual void InitPlayer()
         {
-            Source.RegisterBSChanged(FreshFace);
+            if(Source != null) Source.RegisterBSChanged(FreshFace);
         }
         
     }

@@ -1,8 +1,9 @@
 ﻿using System;
+using UnityEngine;
 
 namespace FaceLink.Data
 {
-    public abstract class BSSourceBase: IBSSource
+    public abstract class BSSourceBase: ScriptableObject, IBSSource
     {
         protected Action<float[]> OnBSChanged;
 
