@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FaceLink.Data
 {
-    public abstract class BSSourceBase: ScriptableObject, IBSSource
+    public abstract class BSSourceAbstract: ScriptableObject, IBSSource
     {
         protected Action<float[]> OnBSChanged;
 

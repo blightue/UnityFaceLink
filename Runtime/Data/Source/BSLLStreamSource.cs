@@ -8,7 +8,7 @@ using UnityEngine;
 namespace FaceLink.Data
 {
     [CreateAssetMenu(menuName = "FaceLink/Source/LiveLinkStream", fileName = "New LiveLink Stream Config")]
-    public class BSLLStreamSource: BSSourceBase
+    public class BSLLStreamSource: BSSourceAbstract
     {
         [SerializeField] protected int port = 11111;
         [SerializeField] protected bool isPlaying;

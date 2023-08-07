@@ -4,7 +4,7 @@ using UnityEngine;
 namespace FaceLink.Data
 {
     [CreateAssetMenu(menuName = "FaceLink/Map/BS Multi-StrengthMap", fileName = "New BSMulti-StrengthMap Asset", order = 2)]
-    public class BSMultStrengthMapSO: BSMapSOBase<BSStrength[]>
+    public class BSMultStrengthMapSO: BSMapSOAbstract<BSStrength[]>
     {
         
     }

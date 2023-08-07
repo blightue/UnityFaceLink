@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 
 namespace FaceLink.Editor.Data
 {
-    [CustomEditor(typeof(BSMapSOBase<>), true)]
-    public class BSMapSOBaseEditor : UnityEditor.Editor
+    [CustomEditor(typeof(BSMapSOAbstract<>), true)]
+    public class BSMapSOAbstractEditor : UnityEditor.Editor
     {
         protected IBSPair targetSO;
 

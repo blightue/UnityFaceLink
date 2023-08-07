@@ -8,15 +8,15 @@ using UnityEngine.UIElements;
 
 namespace Editor.Player
 {
-    [CustomEditor(typeof(BSPlayerBase), true)]
-    public class BSPlayerBaseEditor : UnityEditor.Editor
+    [CustomEditor(typeof(BSPlayerAbstract), true)]
+    public class BSPlayerAbstractEditor : UnityEditor.Editor
     {
-        protected BSPlayerBase _playerBase;
+        protected BSPlayerAbstract PlayerAbstract;
 
         private void OnEnable()
         {
-            _playerBase = target as BSPlayerBase;
-            _playerBase.InitPlayer();
+            PlayerAbstract = target as BSPlayerAbstract;
+            PlayerAbstract.InitPlayer();
         }
 
         public override VisualElement CreateInspectorGUI()
@@ -30,9 +30,9 @@ namespace Editor.Player
             btnGroup.style.alignItems = Align.FlexStart;
             root.Add(btnGroup);
 
-            UIELayout.Button(_playerBase.Play, btnGroup).SetText("Play").style.flexGrow = 1;
-            UIELayout.Button(_playerBase.Stop, btnGroup).SetText("Stop").style.flexGrow = 1;
-            UIELayout.Button(_playerBase.Pause, btnGroup).SetText("Pause").style.flexGrow = 1;
+            UIELayout.Button(PlayerAbstract.Play, btnGroup).SetText("Play").style.flexGrow = 1;
+            UIELayout.Button(PlayerAbstract.Stop, btnGroup).SetText("Stop").style.flexGrow = 1;
+            UIELayout.Button(PlayerAbstract.Pause, btnGroup).SetText("Pause").style.flexGrow = 1;
             
             return root;
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FaceLink.Player
 {
-    public abstract class BSPlayerBase : MonoBehaviour, IBSPlayable
+    public abstract class BSPlayerAbstract : MonoBehaviour, IBSPlayable
     {
 
         public abstract SkinnedMeshRenderer[] SKMRs { get; }

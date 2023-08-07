@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FaceLink.Data
 {
-    public abstract class BSMapSOBase<T> : ScriptableObject, IBSPair
+    public abstract class BSMapSOAbstract<T> : ScriptableObject, IBSPair
     {
         [SerializeField] protected BSPairBase<T>[] _pairs;
 

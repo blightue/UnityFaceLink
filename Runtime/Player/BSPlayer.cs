@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FaceLink.Player
 {
-    public class BSPlayer: BSPlayerBase
+    public class BSPlayer: BSPlayerAbstract
     {
         public override SkinnedMeshRenderer[] SKMRs => _skmrs;
         public override IBSSource Source
@@ -14,7 +14,7 @@ namespace FaceLink.Player
         }
 
         [SerializeField] private SkinnedMeshRenderer[] _skmrs;
-        [SerializeField] private BSSourceBase _source;
+        [SerializeField] private BSSourceAbstract _source;
         [SerializeField] private string[] bsValues;
         public override void FreshFace(float[] blendshapes)
         {
