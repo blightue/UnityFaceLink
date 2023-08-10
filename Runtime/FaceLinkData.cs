@@ -2,7 +2,8 @@
 {
     public static class FaceLinkData
     {
-        public static string[] ARKITBSNAMES = new string[]
+        
+        public static readonly string[] ARKITBSNAMES = new string[]
         {
             "EyeBlinkLeft",
             "EyeLookDownLeft",
@@ -66,5 +67,8 @@
             "RightEyePitch",
             "RightEyeRoll",
         };
+        
+        public static readonly int ARKITBSCOUNT = ARKITBSNAMES.Length;
+
     }
 }
