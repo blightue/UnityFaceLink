@@ -5,11 +5,10 @@ namespace FaceLink.Player
 {
     public abstract class BSPlayerAbstract : MonoBehaviour, IBSPlayable
     {
-
         public abstract SkinnedMeshRenderer[] SKMRs { get; }
         public abstract IBSSource Source { get; }
 
-        //TODO: private BSMapSOAbstract BSMapSO { get; }
+        protected abstract BSMapSOAbstract BSMapSO { get; }
 
         protected virtual void Start()
         {
