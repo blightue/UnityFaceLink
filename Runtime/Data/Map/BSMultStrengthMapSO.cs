@@ -3,8 +3,9 @@ using UnityEngine;
 
 namespace FaceLink.Data
 {
-    [CreateAssetMenu(menuName = "FaceLink/Map/BS Multi-StrengthMap", fileName = "New BSMulti-StrengthMap Asset", order = 2)]
-    public class BSMultStrengthMapSO: BSMapSOAbstract<BSStrength[], BSStrengthMapCache>
+    [CreateAssetMenu(menuName = "FaceLink/Map/BS Multi-StrengthMap", fileName = "New BSMulti-StrengthMap Asset",
+        order = 2)]
+    public class BSMultStrengthMapSO : BSMapSOAbstract<BSStrength[], BSStrengthMapCache>
     {
         public override BSStrengthMapCache RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs)
         {
@@ -29,7 +30,7 @@ namespace FaceLink.Data
                 }
             }
 
-            return new BSStrengthMapCache() { PairsCaches = result };
+            return new BSStrengthMapCache { PairsCaches = result };
         }
     }
 

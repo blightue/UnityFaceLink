@@ -9,6 +9,8 @@ namespace FaceLink.Player
         public abstract SkinnedMeshRenderer[] SKMRs { get; }
         public abstract IBSSource Source { get; }
 
+        //TODO: private BSMapSOAbstract BSMapSO { get; }
+
         protected virtual void Start()
         {
             InitPlayer();

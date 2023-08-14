@@ -16,6 +16,7 @@ namespace FaceLink.Player
         [SerializeField] private SkinnedMeshRenderer[] _skmrs;
         [SerializeField] private BSSourceAbstract _source;
         [SerializeField] private string[] bsValues;
+        [SerializeReference] private BSMapCache _mapCache;
         public override void FreshFace(float[] blendshapes)
         {
             bsValues = blendshapes.Select(f => f.ToString("0.000")).ToArray();
@@ -23,7 +24,8 @@ namespace FaceLink.Player
 
         protected override void SetupSKMRs()
         {
-            Debug.Log("InitFace");
+            //TODO: _mapCache = 
+            Debug.Log("Record Cache");
         }
     }
 }
