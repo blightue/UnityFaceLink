@@ -26,9 +26,9 @@ namespace FaceLink.Player
             bsValues = blendshapes.Select(f => f.ToString("0.000")).ToArray();
         }
 
-        protected override void SetupSKMRs()
+        public override void SetupSKMRs()
         {
-            //TODO: _mapCache = 
+            _mapCache = BSMapSO.RecordSkMRMapCache(SKMRs);
             Debug.Log("Record Cache");
         }
     }

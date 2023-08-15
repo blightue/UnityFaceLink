@@ -5,8 +5,16 @@ using UnityEngine;
 
 namespace FaceLink.Data
 {
-    public abstract class BSMapSOAbstract: ScriptableObject{}
-    public abstract class BSMapSOAbstractGeneric<T, U> : BSMapSOAbstract, IBSPair where U : BSMapCache
+    public abstract class BSMapSOAbstract : ScriptableObject
+    {
+        public abstract BSMapCache RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs);
+        public abstract void ResetPairs();
+        protected virtual void Reset()
+        {
+            ResetPairs();
+        }
+    }
+    public abstract class BSMapSOAbstractGeneric<T> : BSMapSOAbstract, IBSPair
     {
         [SerializeField] protected BSPairBase<T>[] _pairs;
 
@@ -14,12 +22,8 @@ namespace FaceLink.Data
         
         public Dictionary<string, T> BSMap => mapCache ??= ToDictionary();
 
-        protected virtual void Reset()
-        {
-            ResetPairs();
-        }
 
-        public void ResetPairs()
+        public override void ResetPairs()
         {
             int length = FaceLinkData.ARKITBSNAMES.Length;
             _pairs = new BSPairBase<T>[length];
@@ -36,8 +40,6 @@ namespace FaceLink.Data
         {
             return _pairs.ToDictionary(pair => pair.ARKitName, pair => pair.Target);
         }
-
-        public abstract U RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs);
     }
 
     public interface IBSPair

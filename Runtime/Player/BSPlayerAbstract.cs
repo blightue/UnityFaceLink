@@ -31,7 +31,7 @@ namespace FaceLink.Player
         }
         
         public abstract void FreshFace(float[] blendshapes);
-        protected abstract void SetupSKMRs();
+        public abstract void SetupSKMRs();
 
         public virtual void InitPlayer()
         {

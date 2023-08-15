@@ -1,8 +1,5 @@
-﻿using System;
-using FaceLink.Data;
-using FaceLink.Player;
+﻿using FaceLink.Player;
 using SuiSuiShou.UIEEx;
-using SuiSuiShou.UIEEx.Editor;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -34,6 +31,8 @@ namespace Editor.Player
             UIELayout.Button(PlayerAbstract.Play, btnGroup).SetText("Play").style.flexGrow = 1;
             UIELayout.Button(PlayerAbstract.Stop, btnGroup).SetText("Stop").style.flexGrow = 1;
             UIELayout.Button(PlayerAbstract.Pause, btnGroup).SetText("Pause").style.flexGrow = 1;
+
+            UIELayout.Button(PlayerAbstract.SetupSKMRs, root).SetText("Setup").style.flexGrow = 1;
             
             return root;
         }

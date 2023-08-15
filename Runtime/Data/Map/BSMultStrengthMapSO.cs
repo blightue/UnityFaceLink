@@ -5,9 +5,9 @@ namespace FaceLink.Data
 {
     [CreateAssetMenu(menuName = "FaceLink/Map/BS Multi-StrengthMap", fileName = "New BSMulti-StrengthMap Asset",
         order = 2)]
-    public class BSMultStrengthMapSO : BSMapSOAbstractGeneric<BSStrength[], BSStrengthMapCache>
+    public class BSMultStrengthMapSO : BSMapSOAbstractGeneric<BSStrength[]>
     {
-        public override BSStrengthMapCache RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs)
+        public override BSMapCache RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs)
         {
             BSSkMRStrengthPairsCache[] result = new BSSkMRStrengthPairsCache[targetSkMRs.Length];
             Array.Fill(result, new BSSkMRStrengthPairsCache()
