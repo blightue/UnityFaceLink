@@ -7,7 +7,7 @@ namespace FaceLink.Data
         order = 2)]
     public class BSMultStrengthMapSO : BSMapSOAbstractGeneric<BSStrength[]>
     {
-        public override BSMapCache RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs)
+        public override BSMapCacheAbstract RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs)
         {
             BSSkMRStrengthPairsCache[] result = new BSSkMRStrengthPairsCache[targetSkMRs.Length];
             Array.Fill(result, new BSSkMRStrengthPairsCache()
@@ -21,6 +21,11 @@ namespace FaceLink.Data
                 for (int j = 0; j < _pairs.Length; j++)
                 {
                     BSStrength[] bsStrengths = _pairs[j].Target;
+                    if (bsStrengths.Length == 0)
+                    {
+                        result[i].ARkit2SkMRIndiceMap[j] = -1;
+                        continue;
+                    }
                     foreach (BSStrength bss in bsStrengths)
                     {
                         int skBSIndex = targetSkMRs[i].sharedMesh.GetBlendShapeIndex(bss.BSName);
@@ -29,8 +34,8 @@ namespace FaceLink.Data
                     }
                 }
             }
-
-            return new BSStrengthMapCache { PairsCaches = result };
+            BSMapCacheAbstract finall = new BSStrengthMapCache { _pairsCaches = result };
+            return finall;
         }
     }
 

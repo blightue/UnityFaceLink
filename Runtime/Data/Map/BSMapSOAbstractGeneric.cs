@@ -7,7 +7,7 @@ namespace FaceLink.Data
 {
     public abstract class BSMapSOAbstract : ScriptableObject
     {
-        public abstract BSMapCache RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs);
+        public abstract BSMapCacheAbstract RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs);
         public abstract void ResetPairs();
         protected virtual void Reset()
         {
@@ -16,7 +16,7 @@ namespace FaceLink.Data
     }
     public abstract class BSMapSOAbstractGeneric<T> : BSMapSOAbstract, IBSPair
     {
-        [SerializeField] protected BSPairBase<T>[] _pairs;
+        [SerializeField] public BSPairBase<T>[] _pairs;
 
         protected Dictionary<string, T> mapCache;
         

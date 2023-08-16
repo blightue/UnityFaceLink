@@ -1,11 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FaceLink.Data
 {
-    [Serializable]
-    public class BSMapCache
+    public abstract class BSMapCacheAbstract
     {
-        public BSSkMRPairsCache[] PairsCaches;
+        public abstract IEnumerable<BSSkMRPairsCache> PairsCaches { get; }
+    }
+    
+    [Serializable]
+    public class BSMapCache: BSMapCacheAbstract
+    {
+        public override IEnumerable<BSSkMRPairsCache> PairsCaches => _pairsCaches;
+        public BSSkMRPairsCache[] _pairsCaches;
     }
 
     [Serializable]
@@ -15,9 +22,10 @@ namespace FaceLink.Data
     }
 
     [Serializable]
-    public class BSStrengthMapCache : BSMapCache
+    public class BSStrengthMapCache : BSMapCacheAbstract
     {
-        public new BSSkMRStrengthPairsCache[] PairsCaches;
+        public override IEnumerable<BSSkMRPairsCache> PairsCaches => _pairsCaches;
+        public BSSkMRStrengthPairsCache[] _pairsCaches;
     }
 
     [Serializable]

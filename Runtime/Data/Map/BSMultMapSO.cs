@@ -6,7 +6,7 @@ namespace FaceLink.Data
     [CreateAssetMenu(fileName = "New BSMulti-Map Asset", menuName = "FaceLink/Map/BS Multi-Map", order = 1)]
     public class BSMultMapSO : BSMapSOAbstractGeneric<string[]>
     {
-        public override BSMapCache RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs)
+        public override BSMapCacheAbstract RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs)
         {
             BSSkMRPairsCache[] result = new BSSkMRPairsCache[targetSkMRs.Length];
             Array.Fill(result, new BSSkMRPairsCache()
@@ -27,7 +27,7 @@ namespace FaceLink.Data
                 }
             }
 
-            return new BSMapCache() { PairsCaches = result };
+            return new BSMapCache() { _pairsCaches = result };
         }
     }
 }

@@ -8,7 +8,7 @@ namespace FaceLink.Data
     {
 
 
-        public override BSMapCache RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs)
+        public override BSMapCacheAbstract RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs)
         {
             BSSkMRPairsCache[] result = new BSSkMRPairsCache[targetSkMRs.Length];
             Array.Fill(result, new BSSkMRPairsCache(){ARkit2SkMRIndiceMap = new int[FaceLinkData.ARKITBSCOUNT]});
@@ -23,7 +23,7 @@ namespace FaceLink.Data
                 }
             }
 
-            return new BSMapCache() { PairsCaches = result };
+            return new BSMapCache() { _pairsCaches = result };
         }
     }
 
