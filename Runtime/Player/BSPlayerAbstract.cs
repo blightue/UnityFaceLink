@@ -1,3 +1,4 @@
+using System;
 using FaceLink.Data;
 using UnityEngine;
 
@@ -7,12 +8,18 @@ namespace FaceLink.Player
     {
         public abstract SkinnedMeshRenderer[] SKMRs { get; }
         public abstract IBSSource Source { get; }
+        public bool IsBSUpdated { get; set; }
 
         protected abstract BSMapSOAbstract BSMapSO { get; }
 
         protected virtual void Start()
         {
             InitPlayer();
+        }
+
+        protected virtual void Update()
+        {
+            if(IsBSUpdated) FreshFace();
         }
 
         public virtual void Play()
@@ -30,12 +37,13 @@ namespace FaceLink.Player
             Source.Pause();
         }
         
-        public abstract void FreshFace(float[] blendshapes);
+        public abstract void FreshBSData(float[] blendshapes);
+        public abstract void FreshFace();
         public abstract void SetupSKMRs();
 
         public virtual void InitPlayer()
         {
-            if(Source != null) Source.RegisterBSChanged(FreshFace);
+            if(Source != null) Source.RegisterBSChanged(FreshBSData);
         }
         
     }
@@ -46,6 +54,6 @@ namespace FaceLink.Player
         
         IBSSource Source { get; }
 
-        void FreshFace(float[] blendshapes);
+        void FreshBSData(float[] blendshapes);
     }
 }
