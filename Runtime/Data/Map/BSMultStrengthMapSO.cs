@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace FaceLink.Data
@@ -10,11 +11,14 @@ namespace FaceLink.Data
         public override BSMapCacheAbstract RecordSkMRMapCache(SkinnedMeshRenderer[] targetSkMRs)
         {
             BSSkMRStrengthPairsCache[] result = new BSSkMRStrengthPairsCache[targetSkMRs.Length];
-            Array.Fill(result, new BSSkMRStrengthPairsCache()
+            for (var i = 0; i < result.Length; i++)
             {
-                ARkit2SkMRIndiceMap = new int[FaceLinkData.ARKITBSCOUNT],
-                ARKit2SkMRStrengthMap = new float[FaceLinkData.ARKITBSCOUNT],
-            });
+                result[i] = new BSSkMRStrengthPairsCache()
+                {
+                    ARkit2SkMRIndiceMap = new int[FaceLinkData.ARKITBSCOUNT],
+                    ARKit2SkMRStrengthMap = new float[FaceLinkData.ARKITBSCOUNT],
+                };
+            }
 
             for (int i = 0; i < targetSkMRs.Length; i++)
             {
