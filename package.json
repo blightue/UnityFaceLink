@@ -1,17 +1,20 @@
 {
-  "name": "net.suisuishou.facelink",
+  "name": "com.dgene.facelink",
   "displayName": "FaceLink",
   "version": "0.0.1",
   "unity": "2021.2",
   "description": "A Unity plugin for driving Unity Avatar face blendshapes.",
   "keywords": [
-    "Avatar", "ARKit"
+    "Avatar",
+    "ARKit"
   ],
   "author": {
-    "name": "SuiSuiShou",
-    "email": "bligtue@gmail.com",
-    "url": "https://suisuishou.net"
+    "name": "ZhangHao",
+    "email": "hao.zhang@dgene.com"
   },
-  "type": "tool", 
-  "hideInEditor": false
+  "type": "tool",
+  "hideInEditor": false,
+  "dependencies": {
+    "net.suisuishou.uielementextension": "0.1.2"
+  }
 }
