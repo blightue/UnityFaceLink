@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace Editor.Player
+namespace FaceLink.Editor.Player
 {
     [CustomEditor(typeof(BSPlayerAbstract), true)]
     public class BSPlayerAbstractEditor : UnityEditor.Editor
