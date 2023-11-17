@@ -22,6 +22,11 @@ namespace FaceLink.Data
         
         public Dictionary<string, T> BSMap => mapCache ??= ToDictionary();
 
+        public BSPairBase<T> this[int index]
+        {
+            get => _pairs[index];
+            set => _pairs[index] = value;
+        }
 
         public override void ResetPairs()
         {
@@ -52,5 +57,10 @@ namespace FaceLink.Data
     {
         public string ARKitName;
         public T Target;
+
+        public void SetTarget(T target)
+        {
+            Target = target;
+        }
     }
 }
