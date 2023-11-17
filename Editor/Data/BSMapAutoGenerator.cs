@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using FaceLink.Data;
 using FaceLink.Utility;
 using SuiSuiShou.UIEEx;
@@ -15,7 +17,7 @@ namespace FaceLink.Editor.Data
     {
         [SerializeField] private SkinnedMeshRenderer skmr;
         [SerializeField] private BSMapSO bsMap;
-        
+
         [MenuItem("Window/FaceLink/BSMap/AutoGenerator")]
         private static void ShowWindow()
         {
@@ -37,7 +39,10 @@ namespace FaceLink.Editor.Data
 
             Button button = UIELayout.Button(AutoGenerate, rootVisualElement)
                 .SetText("Generate");
-            
+
+            Button buttonWithFilter = UIELayout.Button(() => AutoGenerateWithFilter(s => s.Split('.')[^1]), rootVisualElement)
+                .SetText("Generate Remove Prefix");
+
             rootVisualElement.Bind(new SerializedObject(this));
         }
 
@@ -47,8 +52,25 @@ namespace FaceLink.Editor.Data
 
             string[] targetNames = bsMap.BSMap.Select(kvPair => kvPair.Key).ToArray();
 
-            int[] closestMap = BSAutoMap.ComputeBSMap(skmrBSNames, targetNames);
-            
+            AutoGenerateMap(skmrBSNames, targetNames);
+        }
+
+        private void AutoGenerateWithFilter(Func<string, string> func)
+        {
+            string[] skmrBSNames = GetBSNames(skmr);
+
+            string[] bsName4Map = skmrBSNames.Select(func).ToArray();
+
+            string[] targetNames = bsMap.BSMap.Select(kvPair => kvPair.Key).ToArray();
+
+            AutoGenerateMap(skmrBSNames, targetNames, BSAutoMap.ComputeBSMap(bsName4Map, targetNames));
+        }
+
+        private void AutoGenerateMap(string[] skmrBSNames, string[] targetNames, int[] closestMap = null)
+        {
+            if (closestMap == null)
+                closestMap = BSAutoMap.ComputeBSMap(skmrBSNames, targetNames);
+
             for (var i = 0; i < closestMap.Length; i++)
             {
                 var value = bsMap[closestMap[i]];
@@ -56,7 +78,7 @@ namespace FaceLink.Editor.Data
                 bsMap[closestMap[i]] = value;
             }
             Debug.Log($"Set BSNames with length {closestMap.Length}");
-            
+
             EditorUtility.SetDirty(bsMap);
         }
 
