@@ -1,7 +1,7 @@
 {
   "name": "com.dgene.facelink",
   "displayName": "FaceLink",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "unity": "2021.2",
   "description": "A Unity plugin for driving Unity Avatar face blendshapes.",
   "keywords": [

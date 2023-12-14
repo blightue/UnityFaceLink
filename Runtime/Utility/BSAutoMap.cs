@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using JacksonDunstan.NativeCollections;
-using Unity.Jobs;
-using Unity.Collections;
-using Unity.Burst;
-using Unity.Mathematics;
+// using Unity.Jobs;
+// using Unity.Collections;
+// using Unity.Burst;
+// using Unity.Mathematics;
 using UnityEngine;
 
 namespace FaceLink.Utility
@@ -73,6 +72,7 @@ namespace FaceLink.Utility
         }
     }
 
+    /*
     [BurstCompile]
     public struct LSDistanceJob : IJobParallelFor
     {
@@ -121,4 +121,5 @@ namespace FaceLink.Utility
             return distance;
         }
     }
+    */
 }
